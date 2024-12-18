@@ -2,12 +2,13 @@ import React from "react";
 
 function Button(props) {
   return (
-    <div>
+    <div className=" flex justify-center">
       <button
         className="h-10 w-20  bg-blue-500 text-black rounded-lg hover:bg-blue-600"
-        type={props.type}
+        type={props?.type}
+        onClick={props?.onClick}
       >
-        {props.name}
+        {props?.name}
       </button>
     </div>
   );
