@@ -2,8 +2,8 @@ import { createContext, useState } from "react";
 
 export const WeatherContext = createContext();
 
-export const WeatherProvider = ({ children }) => { // Fixed prop name
-  const [weather, setWeather] = useState([]); // State initialization
+export const WeatherProvider = ({ children }) => {
+  const [weather, setWeather] = useState([]);
   return (
     <WeatherContext.Provider value={{ weather, setWeather }}>
       {children}

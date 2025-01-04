@@ -1,4 +1,3 @@
-import "./App.css";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout"
 import { WeatherProvider } from "./Context/WeatherContext";
