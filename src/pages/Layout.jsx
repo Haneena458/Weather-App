@@ -6,7 +6,6 @@ function Start() {
   return (
     <div
       style={{
-        // backgroundColor:"red",
         backgroundImage:
           "url(https://images.pexels.com/photos/4542756/pexels-photo-4542756.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
         backgroundSize: "cover",

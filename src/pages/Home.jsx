@@ -68,14 +68,14 @@ function Home() {
         style={{
           backgroundImage: backgroundStyle,
           backgroundSize: "cover",
-          height: "100vh",
           width: "100%",
         }}
+        className="h-full min-h-screen"
       >
-        <header className="p-10 pb-5">
-          <form className="flex justify-end gap-5" onSubmit={handleSubmit}>
+        <header className="p-6 md:p-10 pb-5">
+          <form className="flex flex-col sm:flex-row justify-end gap-5 items-center" onSubmit={handleSubmit}>
             <input
-              className="p-2 ps-3 text-slate-800 rounded-md  focus:outline-none focus:ring focus:ring-blue-200 "
+              className="p-3 sm:w-auto text-slate-800 ps-3 rounded-md  focus:outline-none focus:ring focus:ring-blue-200 "
               type="text"
               value={city}
               onChange={handleSearch}
@@ -86,58 +86,46 @@ function Home() {
         </header>
 
         {weather && Object.keys(weather).length > 0 && (
-          <div>
+          <div className=" p-4">
             <div id="weather" className=" p-2 md:p-5 rounded-md shadow-md">
-              <h2 className="text-4xl font-semibold text-center ">
+              <h2 className="text-2xl md:text-4xl font-semibold text-center ">
                 {weather?.name} , {weather?.sys?.country}
               </h2>
-              <div className="flex justify-center p-5">
-                <p className="text-9xl text-black">{weather?.main?.temp}</p>
-                <p className="text-3xl text-black"> °C </p>
+              <div className="flex justify-center items-center p-5">
+                <p className="text-5xl md:text-9xl text-black">{weather?.main?.temp}</p>
+                <p className="text-xl md:text-4xl text-black -mt-5"> &nbsp;&nbsp;&nbsp;°C </p>
               </div>
 
-              <div className="flex justify-center">
-                <div className="flex  md:flex-row text-center w-52 h-48  rounded-lg shadow-md justify-center">
+              <div className="flex justify-center items-center">
+                <div className="flex flex-col md:flex-row items-center text-center w-52 h-48  rounded-lg shadow-md justify-center">
                   {weather?.weather[0]?.icon && (
                     <img
                       src={`https://openweathermap.org/img/wn/${weather?.weather[0]?.icon}@2x.png`}
                       alt={weather?.weather[0]?.description}
-                      className="w-32 h-32"
+                      className="w-20 h-20 md:w-32 md:h-32 bg-neutral-300 rounded-2xl"
                     />
                   )}
-                  <p className="capitalize text-2xl font-medium mt-2">
+                  <p className="capitalize text-xl md:text-2xl font-medium mt-2 ps-5">
                     {weather?.weather[0]?.description}
                   </p>
                 </div>
               </div>
 
-              <div
-                div
-                className="pb-0 flex justify-center flex-col md:flex-row gap-5"
-              >
-                {/* <Card name="Temparature" value={weather?.main?.temp} add="°F" /> */}
+              <div className="flex justify-center p-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-5" >
                 <Card name="Humidity" value={weather?.main?.humidity} add="%" />
-                <Card
-                  name="Wind Speed"
-                  value={weather?.wind?.speed}
-                  add="mph"
-                />
+                <Card name="Wind Speed" value={weather?.wind?.speed} add="mph" />
                 <Card name="Pressure" value={weather.main.pressure} add="p" />
-                <Card name="Sea Level" value={weather.main.sea_level} add="p" />
-                <Card
-                  name="Ground Level"
-                  value={weather.main.grnd_level}
-                  add="p"
-                />
+                <Card name="Sea Level" value={weather.main.sea_level}  />
+                <Card name="Ground Level" value={weather.main.grnd_level}  />
               </div>
+              </div>
+
             </div>
           </div>
         )}
-        {error && <p>Error : {error} </p>}
+        {error && <p className="text-red-600 text-center font-medium mt-5">Error : {error} </p>}
       </div>
-      {/* ) : (
-        <div>No weather data available</div>
-       )} */}
     </>
   );
 }
