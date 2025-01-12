@@ -75,7 +75,7 @@ function Home() {
         <header className="p-6 md:p-10 pb-5">
           <form className="flex flex-col sm:flex-row justify-end gap-5 items-center" onSubmit={handleSubmit}>
             <input
-              className="p-3 sm:w-auto text-slate-800 ps-3 rounded-md  focus:outline-none focus:ring focus:ring-blue-200 "
+              className="p-2 sm:w-auto text-slate-800 ps-3 rounded-md  focus:outline-none focus:ring focus:ring-blue-200 "
               type="text"
               value={city}
               onChange={handleSearch}
