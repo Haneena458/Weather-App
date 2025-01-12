@@ -26,8 +26,6 @@ function Home() {
   const [error, setError] = useState(null);
   const { weather, setWeather } = useContext(WeatherContext);
 
-  console.log(weather);
-
   const apikey = "55bdefe41aae9331520fbfca4c808914";
 
   const handleSearch = (e) => {
